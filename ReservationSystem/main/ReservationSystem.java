@@ -202,7 +202,7 @@ public class ReservationSystem {
 			System.out.println("Would you like to try again with the search?");
 			System.out.println("1. YES");
 			System.out.println("Anything else: NO");
-			if(scan.nextInt() == 1) {
+			if(scan.nextLine().equals("1")) {
 				makeReservation();
 			}
 		}
