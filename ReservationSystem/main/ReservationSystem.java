@@ -45,6 +45,7 @@ public class ReservationSystem {
 			System.out.println("1. Make room reservation");
 			System.out.println("2. Check rooms availability");
 			System.out.println("3. Check exact room occupant");
+			System.out.println("4. Cancel reservation");
 			System.out.println("0. Exit");
 			choice = scan.nextInt();
 			scan.nextLine();
@@ -56,17 +57,12 @@ public class ReservationSystem {
 					checkAvailability();
 					break;
 				case 3:
-					int room;
-					while(true) {
-						System.out.println("Enter room number that you want to check(from 1 to 30):");
-						room = scan.nextInt();
-						if(room > 0 && room < 31) {
-							break;
-						}
-					}
-					checkRoom(room-1);
+					checkRoom();
 					break;
 				case 4:
+					cancelReservation();
+					break;
+				case 0:	
 				default:
 					shouldBrake = true;
 				
@@ -79,7 +75,36 @@ public class ReservationSystem {
 		
 	}
 	
-	private static void checkRoom(int room) {
+	private static void cancelReservation() {
+		System.out.println("Enter your name:");
+		String name = scan.nextLine();
+		boolean roomFound = false;
+		for(Room room : rooms) {
+			if(room.isOccupied()) {
+				if(room.getOccupant().equals(name)) {
+					room.setOccupant(null);
+					room.setOccupied(false);
+					persistRooms();
+					System.out.println("Your reservation is canceled");
+					roomFound = true;
+					break;
+				}
+			}
+		}
+		if(!roomFound) {
+			System.out.println("There is no reservation made with this name");
+		}
+	}
+
+	private static void checkRoom() {
+		int room;
+		while(true) {
+			System.out.println("Enter room number that you want to check(from 1 to 30):");
+			room = scan.nextInt();
+			if(room > 0 && room < 31) {
+				break;
+			}
+		}
 		if(rooms.get(room-1).isOccupied()) {
 			System.out.println("Room is occupied by " + rooms.get(room-1).getOccupant());
 		}
@@ -163,10 +188,9 @@ public class ReservationSystem {
 				System.out.println("For how many nights would you like to book the room?");
 				int nights = scan.nextInt();
 				room.setOccupant(name);
-				isThereFreeRoom = true;
-				roomNumber++;
 				System.out.println(name + ", you have booked your room. Your room number is " + roomNumber);
 				System.out.println("We expect your payment. The amount you have to pay is: " + nights*room.getRate());
+				isThereFreeRoom = true;
 				persistRooms();
 				break;
 			}
@@ -209,7 +233,6 @@ public class ReservationSystem {
 					is.close();
 					break;
 				}
-				System.out.println((Room) is.readObject());
 			}	
 		}
 		catch(EOFException e) {
@@ -254,6 +277,5 @@ public class ReservationSystem {
 				continue;
 			}
 		}
-		persistRooms();
 	}
 }

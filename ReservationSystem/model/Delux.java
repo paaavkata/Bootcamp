@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Delux extends Room implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 3L;
 	
 	public Delux(int places) {
 		super(places, true, false, 150, 2);

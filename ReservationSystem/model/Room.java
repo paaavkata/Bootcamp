@@ -3,11 +3,7 @@ package model;
 import java.io.Serializable;
 
 public abstract class Room implements Serializable{
-	@Override
-	public String toString() {
-		return "Room [places=" + places + ", wifi=" + wifi + ", occupied=" + occupied + ", rate=" + rate + ", occupant="
-				+ occupant + ", type=" + type + "]";
-	}
+	
 	private static final long serialVersionUID = 1L;
 	private int places;
 	private final boolean wifi;
@@ -20,7 +16,7 @@ public abstract class Room implements Serializable{
 		this.places = places;
 		this.wifi = wifi;
 		this.occupied = occupied;
-		this.rate = rate;
+		this.rate = (places == 1 ? rate : rate*2);
 		this.type = type;
 	}
 	public int getType() {
@@ -53,4 +49,9 @@ public abstract class Room implements Serializable{
 		this.occupant = name;		
 	}
 	
+	@Override
+	public String toString() {
+		return "Room [places=" + places + ", wifi=" + wifi + ", occupied=" + occupied + ", rate=" + rate + ", occupant="
+				+ occupant + ", type=" + type + "]";
+	}
 }
