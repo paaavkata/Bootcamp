@@ -1,17 +1,21 @@
-package com.reservationsystem.models;
+package com.reservationsystem.models.Rentable;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-public class Room {
+import com.reservationsystem.models.User.User;
+import com.reservationsystem.models.util.Reservation;
+
+public class Room extends Rentable{
 
 	@Id
 	private long id;
+	private Hotel hotel;
 	private int roomNumber;
 	private int beds;
-	private int roomType;
-	private Reservation reservation;
+	private RoomType roomType;
+	private List<Reservation> reservations;
 	private boolean isFree;
 	private List<User> occupants;
 	
@@ -37,17 +41,17 @@ public class Room {
 	public void setBeds(int beds) {
 		this.beds = beds;
 	}
-	public int getRoomType() {
+	public RoomType getRoomType() {
 		return roomType;
 	}
-	public void setRoomType(int roomType) {
+	public void setRoomType(RoomType roomType) {
 		this.roomType = roomType;
 	}
-	public Reservation getReservation() {
-		return reservation;
+	public List<Reservation> getReservations() {
+		return reservations;
 	}
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 	public boolean isFree() {
 		return isFree;
@@ -60,6 +64,14 @@ public class Room {
 	}
 	public void setOccupants(List<User> occupants) {
 		this.occupants = occupants;
+	}
+
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 	
 	

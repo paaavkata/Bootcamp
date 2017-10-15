@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.reservationsystem.converters.FormToUser;
 import com.reservationsystem.modelForms.UserForm;
-import com.reservationsystem.models.User;
+import com.reservationsystem.models.User.User;
+import com.reservationsystem.models.util.Notification;
 import com.reservationsystem.repositories.UserRepository;
 import com.reservationsystem.services.UserService;
-import com.reservationsystem.util.Notification;
 
 @Service
 public class UserServiceImpl implements UserService {

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.reservationsystem.modelForms.UserForm;
-import com.reservationsystem.models.User;
+import com.reservationsystem.models.User.User;
 import com.reservationsystem.services.UserService;
 
 @Controller

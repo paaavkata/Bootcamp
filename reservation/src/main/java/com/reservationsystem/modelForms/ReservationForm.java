@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import com.reservationsystem.models.Hotel;
-import com.reservationsystem.models.Room;
-import com.reservationsystem.models.User;
+import com.reservationsystem.models.Rentable.Hotel;
+import com.reservationsystem.models.Rentable.Room;
+import com.reservationsystem.models.User.User;
 
 public class ReservationForm {
 	

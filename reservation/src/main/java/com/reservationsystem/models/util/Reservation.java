@@ -1,9 +1,13 @@
-package com.reservationsystem.models;
+package com.reservationsystem.models.util;
 
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+
+import com.reservationsystem.models.Rentable.Hotel;
+import com.reservationsystem.models.Rentable.Room;
+import com.reservationsystem.models.User.User;
 
 public class Reservation {
 
@@ -15,7 +19,16 @@ public class Reservation {
 	private List<User> guests;
 	private Date startDate;
 	private Date endDate;
+	private int status;
 	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public Reservation() {
 		
 	}

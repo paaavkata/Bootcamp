@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.reservationsystem.models.User;
+import com.reservationsystem.models.User.User;
 import com.reservationsystem.services.UserService;
 
 @Controller

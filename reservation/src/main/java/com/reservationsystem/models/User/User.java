@@ -1,12 +1,14 @@
-package com.reservationsystem.models;
+package com.reservationsystem.models.User;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-import com.reservationsystem.util.Notification;
+import com.reservationsystem.models.Rentable.Hotel;
+import com.reservationsystem.models.util.Notification;
+import com.reservationsystem.models.util.Reservation;
 
-public class User {
+public abstract class User {
 	
 	@Id
 	private long id;

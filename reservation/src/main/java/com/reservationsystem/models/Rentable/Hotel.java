@@ -1,10 +1,13 @@
-package com.reservationsystem.models;
+package com.reservationsystem.models.Rentable;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-public class Hotel {
+import com.reservationsystem.models.User.User;
+import com.reservationsystem.models.util.Reservation;
+
+public class Hotel extends Rentable {
 	
 	@Id
 	private long id;
@@ -12,6 +15,7 @@ public class Hotel {
 	private String address;
 	private String city;
 	private String country;
+	private String info;
 	private String phone;
 	private User manager;
 	private List<User> workers;
@@ -21,6 +25,13 @@ public class Hotel {
 	
 	public Hotel() {
 		
+	}
+	
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
 	}
 	public String getCity() {
 		return city;

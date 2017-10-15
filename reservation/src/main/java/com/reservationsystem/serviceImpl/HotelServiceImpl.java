@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.reservationsystem.converters.FormToReservation;
 import com.reservationsystem.modelForms.ReservationForm;
-import com.reservationsystem.models.Reservation;
-import com.reservationsystem.models.User;
+import com.reservationsystem.models.User.User;
+import com.reservationsystem.models.util.Reservation;
 import com.reservationsystem.repositories.HotelRepository;
 import com.reservationsystem.services.HotelService;
 
