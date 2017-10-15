@@ -14,10 +14,19 @@ public class Room extends Rentable{
 	private Hotel hotel;
 	private int roomNumber;
 	private int beds;
-	private RoomType roomType;
 	private List<Reservation> reservations;
 	private boolean isFree;
 	private List<User> occupants;
+	private String name;
+	private int bedrooms;
+	private boolean airCondition;
+	private boolean wiFi;
+	private boolean terrase;
+	private boolean goodView;
+	private boolean kitchen;
+	private boolean toilet;
+	private boolean TV;
+	
 	
 	public Room() {
 		
@@ -40,12 +49,6 @@ public class Room extends Rentable{
 	}
 	public void setBeds(int beds) {
 		this.beds = beds;
-	}
-	public RoomType getRoomType() {
-		return roomType;
-	}
-	public void setRoomType(RoomType roomType) {
-		this.roomType = roomType;
 	}
 	public List<Reservation> getReservations() {
 		return reservations;
@@ -74,6 +77,60 @@ public class Room extends Rentable{
 		this.hotel = hotel;
 	}
 	
-	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getBedrooms() {
+		return bedrooms;
+	}
+	public void setBedrooms(int bedrooms) {
+		this.bedrooms = bedrooms;
+	}
+	public boolean isAirCondition() {
+		return airCondition;
+	}
+	public void setAirCondition(boolean airCondition) {
+		this.airCondition = airCondition;
+	}
+	public boolean isWiFi() {
+		return wiFi;
+	}
+	public void setWiFi(boolean wiFi) {
+		this.wiFi = wiFi;
+	}
+	public boolean isTerrase() {
+		return terrase;
+	}
+	public void setTerrase(boolean terrase) {
+		this.terrase = terrase;
+	}
+	public boolean isGoodView() {
+		return goodView;
+	}
+	public void setGoodView(boolean goodView) {
+		this.goodView = goodView;
+	}
+	public boolean isKitchen() {
+		return kitchen;
+	}
+	public void setKitchen(boolean kitchen) {
+		this.kitchen = kitchen;
+	}
+	public boolean isToilet() {
+		return toilet;
+	}
+	public void setToilet(boolean toilet) {
+		this.toilet = toilet;
+	}
+	public boolean isTV() {
+		return TV;
+	}
+	public void setTV(boolean tV) {
+		TV = tV;
+	}
+
 	
 }
