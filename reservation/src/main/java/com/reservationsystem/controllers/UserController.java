@@ -1,5 +1,6 @@
 package com.reservationsystem.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -30,7 +31,7 @@ public class UserController {
     	if(userForm != null){
 			if(userForm.getId() == id) {
 				session.removeAttribute("notification");
-				User user = userService.getProfile(userForm);
+				User user = userService.getById(id);
 				session.setAttribute("user", user);
 				session.setAttribute("levels", userService.getLevels());
 				session.setAttribute("notifications", userService.getNotifications(user));
@@ -43,13 +44,12 @@ public class UserController {
 	
 	@GetMapping(value="/login")
 	public String loginForm(HttpSession session) {
+		session.removeAttribute("notification");
 		if (session.getAttribute("user") != null) {
-			session.removeAttribute("notification");
 			session.setAttribute("notification", "You are already logged in.");
 			return "index";
 		}
 		else{
-			session.removeAttribute("notification");
 			session.removeAttribute("notifsignup");
 			return "login";
 		}	
@@ -68,14 +68,21 @@ public class UserController {
 		
 		User user = userService.validLogin(userForm);
 		if(user != null){
-			if(user.getRole() == 7){
-				session.setAttribute("user", user);
-				session.setAttribute("notifications", userService.getNotifications(user));
-				return "admin";
-			}
 			session.setAttribute("user", user);
-			session.removeAttribute("notification");
-	        return "index";
+			session.setAttribute("notifications", userService.getNotifications(user));
+			switch(user.getRole()) {
+			case 1:
+			case 2:
+				return "/";
+			case 3:
+			case 4:
+				return "/worker";
+			case 5:
+				return "/manager";
+			case 6:
+				return "/admin";	
+			}
+	        return "/";
 		}		
 		else{
 			session.setAttribute("notifsignup", "Wrong username or password. Try again!");
@@ -85,43 +92,42 @@ public class UserController {
 	
 	@GetMapping(value="/signup")
 	public String signupForm(HttpSession session) {
+		session.removeAttribute("notification");
 		if (session.getAttribute("user") != null) {
-			session.removeAttribute("notification");
 			session.setAttribute("notification", "You are already logged in.");
 			return "index";
 		}
 		else{
-			session.removeAttribute("notification");
 			session.removeAttribute("notifsignup");
 			return "/signup";
 		}
 		
 	}
 	@PostMapping(value="/signup")
-	public String signup(@Valid UserForm userForm, BindingResult bindingResult, HttpSession session) {
+	public String signup(@Valid UserForm userForm, BindingResult bindingResult, HttpSession session, HttpServletRequest request) {
 		if(session.getAttribute("user") != null) {
 			session.setAttribute("notification", "You are already logged in.");
 			return "index";
 		}
-		
 		if(bindingResult.hasErrors()) {
-			return "login";
+			request.setAttribute("userForm", userForm);
+			return "signup";
 		}
-		
+		userForm.setLevel(1);
 		User user = userService.registerUser(userForm);
 		if(user != null){
-			if(user.getRole() == 7){
-				session.setAttribute("user", user);
-				session.setAttribute("notifications", userService.getNotifications(user));
-				return "admin";
-			}
-			session.setAttribute("user", user);
+			session.setAttribute("user", user);	
 			session.removeAttribute("notification");
-	        return "index";
+			session.setAttribute("notifications", userService.getNotifications(user));
+			
+			
+	        return "/";
 		}		
 		else{
 			session.setAttribute("notifsignup", "Wrong username or password. Try again!");
 			return "login";
 		}
 	}
+	
+	
 }

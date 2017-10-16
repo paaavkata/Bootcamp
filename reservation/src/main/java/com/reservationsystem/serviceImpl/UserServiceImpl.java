@@ -1,6 +1,8 @@
 package com.reservationsystem.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -27,7 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 	
 	@Override
-	public Notification getNotifications(User user) {
+	public List<Notification> getNotifications(User user) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -55,15 +57,32 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public User getProfile(UserForm userForm) {
+	public HashMap<Integer, String> getLevels() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public HashMap<Integer, String> getLevels() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<User> listAll() {
+		List<User> users = new ArrayList<User>();
+		userRepository.findAll().forEach(users::add);
+		return users;
+	}
+
+	@Override
+	public User getById(long id) {
+		return userRepository.findOne(id);
+	}
+
+	@Override
+	public User saveOrUpdate(User user) {
+		userRepository.save(user);
+		return user;
+	}
+
+	@Override
+	public void delete(long id) {
+		userRepository.delete(id);		
 	}
 
 }

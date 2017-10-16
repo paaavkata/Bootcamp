@@ -25,7 +25,6 @@ public class HomeController {
 		if(session.getAttribute("user") != null){
 			User user = (User) session.getAttribute("user");
 			session.setAttribute("notifications", userService.getNotifications(user));
-			request.setAttribute("user", user);
 		}
 		return "index";
 	}

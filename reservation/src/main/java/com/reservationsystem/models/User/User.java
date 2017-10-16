@@ -8,7 +8,7 @@ import com.reservationsystem.models.Rentable.Hotel;
 import com.reservationsystem.models.util.Notification;
 import com.reservationsystem.models.util.Reservation;
 
-public abstract class User {
+public class User {
 	
 	@Id
 	private long id;

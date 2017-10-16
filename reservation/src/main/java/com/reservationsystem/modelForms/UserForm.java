@@ -13,7 +13,7 @@ public class UserForm {
     @Size(min=6, max=30)
     private String password;
 	private long id;
-	
+	private int level;
 	public UserForm() {
 		
 	}
@@ -40,6 +40,14 @@ public class UserForm {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setLevel(int i) {
+		this.level = i;
+	}
+	
+	public int getLevel() {
+		return level;
 	}
 
 	
