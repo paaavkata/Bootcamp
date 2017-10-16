@@ -3,8 +3,8 @@ package com.reservationsystem.converters;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import com.reservationsystem.model.Reservation;
 import com.reservationsystem.modelForms.ReservationForm;
-import com.reservationsystem.models.util.Reservation;
 
 @Component	
 public class FormToReservation implements Converter<ReservationForm, Reservation>{

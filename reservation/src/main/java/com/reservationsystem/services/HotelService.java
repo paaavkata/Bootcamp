@@ -4,23 +4,21 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.reservationsystem.modelForms.HotelForm;
-import com.reservationsystem.models.Rentable.Hotel;
-import com.reservationsystem.models.Rentable.Room;
+import com.reservationsystem.model.ForRent;
+import com.reservationsystem.model.Room;
 
 @Service
 public interface HotelService {
 
-	Hotel addRooms(List<Room> rooms);
-
-	Hotel makeNewHotel(HotelForm hotelForm);
+	ForRent makeNewHotel(ForRent hotel);
 	
-	List<Hotel> listAll();
+	List<ForRent> listAll();
 
-    Hotel getById(long id);
+    ForRent getById(long id);
 
-    Hotel saveOrUpdate(Hotel hotel);
+    ForRent saveOrUpdate(ForRent hotel);
 
     void delete(long id);
 
+    void addRooms(List<Room> rooms, ForRent forRent);
 }

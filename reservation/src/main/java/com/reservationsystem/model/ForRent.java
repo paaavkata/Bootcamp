@@ -1,13 +1,10 @@
-package com.reservationsystem.models.Rentable;
+package com.reservationsystem.model;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-import com.reservationsystem.models.User.User;
-import com.reservationsystem.models.util.Reservation;
-
-public class Hotel extends Rentable {
+public class ForRent {
 	
 	@Id
 	private long id;
@@ -23,7 +20,7 @@ public class Hotel extends Rentable {
 	private List<Reservation> reservations;
 	private List<User> guests;
 	
-	public Hotel() {
+	public ForRent() {
 		
 	}
 	

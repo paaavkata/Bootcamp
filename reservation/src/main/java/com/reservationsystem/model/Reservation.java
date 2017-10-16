@@ -1,19 +1,15 @@
-package com.reservationsystem.models.util;
+package com.reservationsystem.model;
 
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-import com.reservationsystem.models.Rentable.Hotel;
-import com.reservationsystem.models.Rentable.Room;
-import com.reservationsystem.models.User.User;
-
 public class Reservation {
 
 	@Id
 	private long id;
-	private Hotel hotel;
+	private ForRent hotel;
 	private User user;
 	private List<Room> rooms;
 	private List<User> guests;
@@ -51,10 +47,10 @@ public class Reservation {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Hotel getHotel() {
+	public ForRent getHotel() {
 		return hotel;
 	}
-	public void setHotel(Hotel hotel) {
+	public void setHotel(ForRent hotel) {
 		this.hotel = hotel;
 	}
 	public User getUser() {

@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.reservationsystem.model.Notification;
+import com.reservationsystem.model.User;
 import com.reservationsystem.modelForms.UserForm;
-import com.reservationsystem.models.User.User;
-import com.reservationsystem.models.util.Notification;
 
 @Service
 public interface UserService {

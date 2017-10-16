@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.reservationsystem.converters.FormToReservation;
+import com.reservationsystem.model.User;
 import com.reservationsystem.modelForms.ReservationForm;
-import com.reservationsystem.models.User.User;
 import com.reservationsystem.services.HotelService;
 import com.reservationsystem.services.ReservationService;
 import com.reservationsystem.services.RoomService;

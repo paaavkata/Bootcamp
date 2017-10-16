@@ -2,8 +2,8 @@ package com.reservationsystem.services;
 
 import org.springframework.stereotype.Service;
 
-import com.reservationsystem.models.User.User;
-import com.reservationsystem.models.util.Reservation;
+import com.reservationsystem.model.Reservation;
+import com.reservationsystem.model.User;
 
 @Service
 public interface ReservationService {

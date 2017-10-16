@@ -3,8 +3,8 @@ package com.reservationsystem.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.reservationsystem.converters.FormToReservation;
-import com.reservationsystem.models.User.User;
-import com.reservationsystem.models.util.Reservation;
+import com.reservationsystem.model.Reservation;
+import com.reservationsystem.model.User;
 import com.reservationsystem.repositories.ReservationRepository;
 import com.reservationsystem.services.ReservationService;
 

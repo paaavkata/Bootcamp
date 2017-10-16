@@ -5,15 +5,15 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import com.reservationsystem.models.Rentable.Hotel;
-import com.reservationsystem.models.Rentable.Room;
-import com.reservationsystem.models.User.User;
+import com.reservationsystem.model.ForRent;
+import com.reservationsystem.model.Room;
+import com.reservationsystem.model.User;
 
 public class ReservationForm {
 	
 	private long id;
 	@NotNull
-	private Hotel hotel;
+	private ForRent hotel;
 	@NotNull
 	private User user;
 	@NotNull
@@ -30,10 +30,10 @@ public class ReservationForm {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Hotel getHotel() {
+	public ForRent getHotel() {
 		return hotel;
 	}
-	public void setHotel(Hotel hotel) {
+	public void setHotel(ForRent hotel) {
 		this.hotel = hotel;
 	}
 	public User getUser() {

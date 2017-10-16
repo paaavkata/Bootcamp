@@ -9,9 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.reservationsystem.converters.FormToUser;
+import com.reservationsystem.model.Notification;
+import com.reservationsystem.model.User;
 import com.reservationsystem.modelForms.UserForm;
-import com.reservationsystem.models.User.User;
-import com.reservationsystem.models.util.Notification;
 import com.reservationsystem.repositories.UserRepository;
 import com.reservationsystem.services.UserService;
 

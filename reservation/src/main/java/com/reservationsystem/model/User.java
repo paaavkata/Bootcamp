@@ -1,12 +1,8 @@
-package com.reservationsystem.models.User;
+package com.reservationsystem.model;
 
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-
-import com.reservationsystem.models.Rentable.Hotel;
-import com.reservationsystem.models.util.Notification;
-import com.reservationsystem.models.util.Reservation;
 
 public class User {
 	
@@ -19,7 +15,7 @@ public class User {
 	private String phone;
 	private String documentId;
 	private int role;
-	private Hotel hotel;
+	private ForRent hotel;
 	private List<Reservation> reservations;
 	private List<Notification> notifications;
 	
@@ -83,10 +79,10 @@ public class User {
 	public void setRole(int role) {
 		this.role = role;
 	}
-	public Hotel getHotel() {
+	public ForRent getHotel() {
 		return hotel;
 	}
-	public void setHotel(Hotel hotel) {
+	public void setHotel(ForRent hotel) {
 		this.hotel = hotel;
 	}
 	public List<Reservation> getReservations() {

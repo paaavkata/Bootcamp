@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.reservationsystem.model.User;
 import com.reservationsystem.modelForms.UserForm;
-import com.reservationsystem.models.User.User;
 import com.reservationsystem.services.UserService;
 
 @Controller
