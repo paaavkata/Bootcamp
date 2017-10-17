@@ -1,21 +1,17 @@
 package com.reservationsystem.model;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 
 public class Room {
 
 	@Id
 	private long id;
-	private ForRent hotel;
-	private int roomNumber;
-	private int beds;
-	private List<Reservation> reservations;
-	private boolean isFree;
-	private List<User> occupants;
 	private String name;
+	private int roomNumber;
 	private int bedrooms;
+	private int beds;
+	private Hotel hotel;
+	private boolean isFree;
 	private boolean airCondition;
 	private boolean wiFi;
 	private boolean terrase;
@@ -47,33 +43,18 @@ public class Room {
 	public void setBeds(int beds) {
 		this.beds = beds;
 	}
-	public List<Reservation> getReservations() {
-		return reservations;
-	}
-	public void setReservations(List<Reservation> reservations) {
-		this.reservations = reservations;
-	}
 	public boolean isFree() {
 		return isFree;
 	}
 	public void setFree(boolean isFree) {
 		this.isFree = isFree;
 	}
-	public List<User> getOccupants() {
-		return occupants;
-	}
-	public void setOccupants(List<User> occupants) {
-		this.occupants = occupants;
-	}
-
-	public ForRent getHotel() {
+	public Hotel getHotel() {
 		return hotel;
 	}
-
-	public void setHotel(ForRent hotel) {
+	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	
 	public String getName() {
 		return name;
 	}

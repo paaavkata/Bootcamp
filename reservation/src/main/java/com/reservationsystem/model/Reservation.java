@@ -9,26 +9,39 @@ public class Reservation {
 
 	@Id
 	private long id;
-	private ForRent hotel;
+	private Hotel hotel;
 	private User user;
+	private int guests;
 	private List<Room> rooms;
-	private List<User> guests;
 	private Date startDate;
 	private Date endDate;
 	private int status;
 	
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
 	public Reservation() {
 		
 	}
 	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getGuests() {
+		return guests;
+	}
+
+	public void setGuests(int guests) {
+		this.guests = guests;
+	}
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
 	public long getId() {
 		return id;
 	}
@@ -47,10 +60,10 @@ public class Reservation {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public ForRent getHotel() {
+	public Hotel getHotel() {
 		return hotel;
 	}
-	public void setHotel(ForRent hotel) {
+	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
 	public User getUser() {
@@ -58,19 +71,5 @@ public class Reservation {
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
-	public List<Room> getRooms() {
-		return rooms;
-	}
-	public void setRooms(List<Room> rooms) {
-		this.rooms = rooms;
-	}
-	public List<User> getGuests() {
-		return guests;
-	}
-	public void setGuests(List<User> guests) {
-		this.guests = guests;
-	}
-	
-	
+	}	
 }

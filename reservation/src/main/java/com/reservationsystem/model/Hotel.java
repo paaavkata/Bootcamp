@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.annotation.Id;
 
-public class ForRent {
+public class Hotel {
 	
 	@Id
 	private long id;
@@ -20,7 +20,7 @@ public class ForRent {
 	private List<Reservation> reservations;
 	private List<User> guests;
 	
-	public ForRent() {
+	public Hotel() {
 		
 	}
 	

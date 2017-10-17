@@ -15,7 +15,7 @@ public class User {
 	private String phone;
 	private String documentId;
 	private int role;
-	private ForRent hotel;
+	private Hotel hotel;
 	private List<Reservation> reservations;
 	private List<Notification> notifications;
 	
@@ -79,10 +79,10 @@ public class User {
 	public void setRole(int role) {
 		this.role = role;
 	}
-	public ForRent getHotel() {
+	public Hotel getHotel() {
 		return hotel;
 	}
-	public void setHotel(ForRent hotel) {
+	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
 	public List<Reservation> getReservations() {

@@ -65,8 +65,15 @@ public class HotelController {
 				return "makereservation";
 			}
 			session.setAttribute("notifications", userService.getNotifications(user));
-			session.setAttribute("notification", "You have successfully made your reservation.");
-			reservationService.makeReservation(formToReservation.convert(reservationForm), user);
+			
+			boolean success = reservationService.makeReservation(formToReservation.convert(reservationForm), user);
+			if (success) {
+				session.setAttribute("notification", "You have successfully made your reservation.");
+			}
+			else {
+				session.setAttribute("notification", "There is no free places for these dates.");
+				return "/makereservation";
+			}
 			return "/";
 		}
 		else {
